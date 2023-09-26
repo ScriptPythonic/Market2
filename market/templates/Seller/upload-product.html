@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upload-product.css')}}">
+    
+    <title>Seller Dashboard</title>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="company-name">
+                <h2><span class="green">MARKET</span> <span class="blue">SELLER</span> <span class="green">PAG<span class="blue">E</span></span></h2>
+            </div>
+            
+            <div class="user-info">
+                <div class="account"><a href="/seller-profile">Hi {{ user.seller_name }}</a></div>
+                <div class="logout">Logout</div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/seller-home">Products</a></li>
+            <li><a href="/seller-order-overview">Order</a></li>
+            <li><a href="#">Promotions</a></li>
+            <li><a href="#">Help</a></li>
+            <li class="administration"><a href="#">Administration</a></li>
+        </ul>
+    </nav>
+    <main>
+    <section class="product-overview">
+        <h2>Product Overview</h2>
+        <div class="product-links">
+            <a href="/seller-home">Products</a>
+            <a href="/seller-upload" class="active">Upload Product</a>
+        </div>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="upload-media">
+                <h2>Upload Products Here</h2>
+                <div class="product-Information">
+                    <input type="file" class='product-img' name="product-img">
+                    <h3>Categories</h3>
+                    <p>Your product should be under which category:</p>
+                    <select name="product-categories"  class="product-categories">
+                        <option value="Grocery">Grocery</option>
+                        <option value="House-Hold">House-Hold Appliances</option>
+                        <option value="Health and Beauty">Health and Beauty</option>
+                        <option value="Baby and Infant Product">Baby and Infant Product</option>
+                        <option value="Toy and Games">Toy and Games</option>
+                        <option value="Electronic Appliances">Electronic Appliances</option>
+                        <option value="Jewelry And Accessories">Jewelries and Accessories</option>
+                        <option value="Clothing and Apparel">Clothing and Apparel</option>
+                        <option value="Books and Media">Books and Media</option>
+                        <option value="other">Others</option>
+                    </select>
+                    <label for="product-price">Product Price</label>
+                    <input type="number" name="product-price" id="product-price" placeholder="Product Price" required>
+                    <p>Product Description</p>
+                    <input type="text" name="product-description" class="product-description" id="product-description" required>
+                    <p>Product Name</p>
+                    <input type="text" name="product-name" class="product-name" id="product-name" required>
+                    <p>Amount To Receive On Product</p>
+                    <input type="text" name="received-amount" class="received-amount" id="received-amount" readonly>
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+        </form>
+    </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 MARKET SELLER PAGE</p>
+    </footer>
+</body>
+</html>

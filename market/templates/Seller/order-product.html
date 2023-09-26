@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/seller_page.css')}}">
+    
+    <title>Seller Dashboard</title>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="company-name">
+                <h2><span class="green">MARKET</span> <span class="blue">SELLER</span> <span class="green">PAG<span class="blue">E</span></span></h2>
+            </div>
+            
+            <div class="user-info">
+                <div class="account"><a href="/seller-profile">Hi {{ user.seller_name }}</a></div>
+                <div class="logout">Logout</div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/seller-home">Products</a></li>
+            <li><a href="/seller-order-overview">Order</a></li>
+            <li><a href="#">Promotions</a></li>
+            <li><a href="#">Help</a></li>
+            <li class="administration"><a href="#">Administration</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Order Overview</h2>
+        <div class="order-nav">
+            <a href="#all">All</a>
+            <a href="#approved">Approved</a>
+            <a href="#declined">Declined</a>
+        </div>
+        <section class="product-overview">
+        <div class="order-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Ordered Date</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <tr>
+                        <td>Product A</td>
+                        <td>5</td>
+                        <td>2023-09-30</td>
+                        <td>2000</td>
+                        <td>
+                            <button class="approve-btn">Approve</button>
+                            <button class="decline-btn">Decline</button>
+                        </td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 MARKET SELLER PAGE</p>
+    </footer>
+</body>
+</html>
+
+
+
+

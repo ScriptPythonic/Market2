@@ -1,0 +1,228 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body, h1, h2, ul, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+   
+    color: rgb(138, 198, 74);
+   
+    padding: 20px 0;
+    text-align: center;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.company-name h2 {
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 30px;
+    color: rgb(138, 198, 74);
+}
+
+.green {
+    color: rgb(138, 198, 74); 
+}
+
+.blue {
+    color: blue; 
+}
+
+.blue {
+    color: blue; 
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 0 3px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info .account {
+    margin-right: 10px;
+}
+
+nav {
+    background-color: rgb(138, 198, 74);
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.administration {
+    margin-left: auto;
+}
+
+main {
+    padding: 20px;
+}
+
+.product-overview {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.product-links {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.product-links a {
+    text-decoration: none;
+    background-color: #555;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.product-links a:hover {
+    background-color: rgb(138, 198, 74);
+}
+
+.active {
+    background-color: rgb(138, 198, 74) !important;
+}
+
+footer {
+    background-color: rgb(138, 198, 74);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.upload-media {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.upload-media h2 {
+    text-align: center;
+    margin-top: 0;
+    color: #333;
+}
+
+.product-Information {
+    padding: 20px;
+}
+
+.product-img {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.product-categories {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width:650px){
+    .product-overview{
+        width: 100%;
+        overflow: auto;
+    }
+}
+
+@media (max-width:560px){
+    .company-name h2{
+        font-size: 25px;
+    }
+}
+
+@media (max-width:460px){
+    .company-name{
+        width: 90px;
+    }
+
+    ul{
+        overflow: auto;
+        scroll-behavior: smooth;
+    }
+    .product-links a{
+        padding: 5px 10px;
+        margin-bottom: 5px;
+    }
+
+    input{
+        width: 100%;
+    }
+}
+

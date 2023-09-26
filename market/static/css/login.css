@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+main{
+    width: 100%;
+   
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+
+
+.login-image{
+  
+    background-image: url(../images/user-image.jpeg);
+    height: 450px;
+    width: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+.login-container {
+    background-color: #ffffff;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.login-container input[type="email"],
+        .login-container input[type="password"],
+.login-container input[type="text"],
+        #states {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .login-container input[type="submit"] {
+            background-color: rgb(138, 198, 74);
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+.login-selection{
+    width: 500px;
+    background-color: #fff;
+    display: flex;
+    height: 50px;
+    margin-bottom: 30px;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+}
+
+.user{
+    width: 32.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 21px;
+}
+
+.user:hover{
+    background-color: rgb(138, 198, 74);
+}
+
+.user a {
+    text-decoration: none;
+   
+}
+
+.active{
+    background-color: rgb(138, 198, 74);
+    
+}
+
+/* Style the flash messages container */
+.flash-messages {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Style the flash messages container */
+.flash-messages {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Style each individual flash message */
+.flash-message {
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+/* Style success flash messages */
+.flash-message.success {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #45a049;
+}
+
+/* Style error flash messages */
+.flash-message.error {
+    background-color: #f44336;
+    color: white;
+    border-color: #d32f2f;
+}

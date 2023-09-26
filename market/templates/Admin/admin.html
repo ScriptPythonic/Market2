@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/seller-dashboard.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css')}}">
+</head>
+<body>
+    <nav>
+        <div class="company-name">
+            <h2>MARKET</h2>
+        </div>
+        <div class="product-search">
+            <input type="search" class="product-search" placeholder="Search For Product" name="search" id="search">
+        </div>
+        <div class="nav-links">
+            <a href="/" id="sign-up">Home</a>
+            <a href="/auth/logout">Logout</a>
+    </nav>
+    <main>
+        <div class="admin-table">
+         <ul>
+            <li>
+                <a href="/approved-product">Approved Product</a>
+                <a href="/admin">Uploaded Product</a>
+                <a href="#">Customers Order </a>
+                <a href="#">Declined Order</a>
+                <a href="#">Recieved Order</a>
+                <a href="#">Sellers Withdrawal</a>
+                <a href="#">Couriers Infomation</a>
+                <a href="#">Customer Comments</a>
+
+            </li>
+         </ul>
+
+        </div>
+        <div class="admin-table-information">
+{% block content %}
+    <h1>Uploaded - Products</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Seller</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.description }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.category }}</td>
+                        <td>{{ product.status }}</td>
+                        <td>{{ product.seller.seller_name }}
+                                {{ product.seller.seller_last_name }}
+                        </td>
+                        <td>
+                            <img src="{{ product.image_url }}" alt="{{ product.name }}" width="100" height="100">
+                        </td> 
+                        <td>
+                            <a href="{{ url_for('admin_panel.approve_product', product_id=product.id) }}">Approve</a>
+                            <a href="{{ url_for('admin_panel.decline_product', product_id=product.id) }}">Decline</a>
+                        </td>
+                        
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endblock %}
+
+        </div>
+    </main>
+    {% extends "Assest/footer.html" %}
+
+</body>
+</html>

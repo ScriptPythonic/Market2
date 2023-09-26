@@ -1,0 +1,78 @@
+main{
+    padding-top: 70px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.admin-table{
+    width: 20%;
+    height: 70vh;
+    background-color:white;
+    float: left;
+    box-shadow: 0 0 1px 1px rgba(138, 198, 74, 0.4);
+}
+
+nav{
+    background-color: white !important;
+    border-bottom: 1px solid rgb(138, 198, 74);
+}
+
+.company-name h2{
+  color: rgb(138, 198, 74) !important;
+
+   
+  }
+
+.nav-links a{
+  color: rgb(138, 198, 74) !important;
+}
+
+.product-search{
+    display: none;
+}
+  
+.admin-table-information{
+    flex: 1;
+    width: 79%;
+    height: 70vh;
+    overflow: auto;
+
+}
+.admin-table a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent; 
+    transition: background-color 0.3s, color 0.3s, border-bottom-color 0.3s; 
+    color: rgb(138, 198, 74);
+}
+
+.admin-table a:hover {
+    background-color: rgb(138, 198, 74);
+    color: white;
+    border-bottom-color: rgb(138, 198, 74);
+   
+}
+
+
+@media (max-width: 865px){
+    .admin-table{
+        width: 100px;
+        height: 495px;
+    }
+
+    .admin-table-information{
+        overflow: auto;
+        height: 465px;
+    }
+}
+
+@media (max-width: 400px){
+    .company-name h2{
+        font-size: 20px;
+    }
+}
+

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY MARKET</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing-page.css')}}">
+    <script src="{{ url_for('static',filename='js/landing.js')}}"></script>
+</head>
+<body>
+    <nav>
+        <div class="company-name">
+            <h2 id="company-name">MARKET</h2>
+        </div>
+        <div class="product-search">
+            <input type="search" class="product-search"  placeholder="Search For Product" name="search" id="search">
+        </div>
+     
+        <div class="nav-links">
+            {% if user.is_authenticated %}
+            <a href="#">Cart</a>
+            <a href="#">Order</a>
+            {% if user.role == 'admin' %}
+            <a href="/admin">Admin</a>
+            {% endif %}
+            <a href="/auth/logout">logout</a>
+             {% else %} 
+            <a href="/auth/sign-up" id="sign-up">Create-Acount</a>
+            <a href="/auth/login" id="sign-in">Sign-in</a>
+            {% endif %}
+            <button type="button">MENU</button>
+        </div>
+    </nav>
+   <main id="main">
+    <div class="container-fluid">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for category, message in messages %}
+                    <li class="flash-message {{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+        <div class="container-fluid-words">
+            <p><h2>Smart Strategies to Reduce Transportation Costs While Grocery Shopping</h2></p>
+            <p>
+                Get Ready to Save Big on Groceries and Transportation! Discover Awesome 
+                Tips to Trim Your Grocery Bills and Cut Down on Transportation Costs, All While Enjoying Exclusive Discounts and Insights on Our Website
+                 –<span> Your Ultimate Shopping Companion!</span>
+            </p>
+        </div>
+    </div>
+   </main>
+   <section id="section">
+    <h2 class="grocery-header">Discover Our Wide Range of Categories</h2>
+    <div class="categories">
+        <div class="category-grid">
+
+            <div class="product-categoory">
+                <a href="">
+                    <div class="product-img grocery">
+
+                    </div>
+                    <p>Groceries</p>
+                </a>
+            </div>
+
+            <div class="product-categoory">
+                <a href="">
+                    <div class="product-img household">
+
+                    </div>
+                    <p>Household Appliances</p>
+                </a>
+            </div>
+
+            <div class="product-categoory">
+                <a href="">
+                    <div class="product-img health">
+
+                    </div>
+                    <p>Health and Beauty</p>
+                </a>
+            </div>
+
+            <div class="product-categoory">
+                <a href="">
+                    <div class="product-img  baby">
+
+                    </div>
+                    <p>Infant Product</p>
+                </a>
+            </div>
+
+            <div class="product-categoory">
+                <a href="">
+                    <div class="product-img electronic">
+
+                    </div>
+                    <p>Electrical and Electronics</p>
+                </a>
+            </div>
+
+
+            <div class="product-categoory">
+                <a href="">
+                    <div class="product-img jewelry">
+
+                    </div>
+                    <p>Jewelries</p>
+                </a>
+            </div>
+
+            <div class="product-categoory">
+                <a href="">
+                    <div class="product-img clothing">
+
+                    </div>
+                    <p>Clothing</p>
+                </a>
+            </div>
+
+            <div class="product-categoory">
+                <a href="">
+                    <div class="product-img book">
+
+                    </div>
+                    <p>Books and Media</p>
+                </a>
+            </div>
+
+            <div class="product-categoory">
+                <a href="">
+                    <div class="product-img toy">
+
+                    </div>
+                    <p>Toys</p>
+                </a>
+            </div>
+
+            <div class="product-categoory">
+                <a href="">
+                    <div class="product-img other">
+
+                    </div>
+                    <p>Others</p>
+                </a>
+            </div>
+
+           
+        </div>
+    </div>
+    <div class="about-courier">
+        <div class="courier-comment">
+            <h1 class="courier-comment-h2">Get Instant Delivery with Our Dedicated Team of Riders – Your Cart, Our Swift Service</h1>
+        </div>
+
+        <div class="courier-image">
+
+        </div>
+       
+    </div>
+  
+   </section>
+ {% extends "Assest/footer.html" %}
+</body>
+</html>
+

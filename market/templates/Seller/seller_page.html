@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/seller_page.css')}}">
+    
+    <title>Seller Dashboard</title>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="company-name">
+                <h2><span class="green">MARKET</span> <span class="blue">SELLER</span> <span class="green">PAG<span class="blue">E</span></span></h2>
+            </div>
+            
+            <div class="user-info">
+                <div class="account"><a href="/seller-profile">Hi {{ user.seller_name }}</a></div>
+                <div class="logout">Logout</div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/seller-home">Products</a></li>
+            <li><a href="/seller-order-overview">Order</a></li>
+            <li><a href="#">Promotions</a></li>
+            <li><a href="#">Help</a></li>
+            <li class="administration"><a href="#">Administration</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="product-overview">
+            <h2>Product Overview</h2>
+            <div class="product-links">
+                <a href="/seller-home" class="active">Products</a>
+                <a href="/seller-upload">Upload Product</a>
+            </div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flash-messages">
+                    {% for category, message in messages %}
+                        <li class="flash-message {{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Sales Price</th>
+                        <th>Created</th>
+                        <th>Approved</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.category }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.sales_price }}</td>
+                        <td>None</td>
+                        <td>{{ product.status }}</td>
+                        <td>
+                            <a href="{{ url_for('sellers.delete_product', product_id=product.id) }}">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="showPerPage">
+                <label for="perPage">Show per page:</label>
+                <select id="perPage">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="all">All</option>
+                </select>
+            </div>
+            
+            
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 MARKET SELLER PAGE</p>
+    </footer>
+</body>
+</html>

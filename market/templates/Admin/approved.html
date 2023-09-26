@@ -1,0 +1,40 @@
+{% extends "Admin/admin.html" %}
+{% block content %}
+<h1>Approved - Products</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Sales Price</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Seller</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>None</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.status }}</td>
+                <td>{{ product.seller.seller_name }}
+                        {{ product.seller.seller_last_name }}
+                </td>
+                <td>
+                    <img src="{{ product.image_url }}" alt="{{ product.name }}" width="100" height="100">
+                </td> 
+                <td>
+                    <a href="">Delete</a>
+                </td>
+                
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
