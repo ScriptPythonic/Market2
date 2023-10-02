@@ -42,6 +42,12 @@ select {
     border-radius: 10px;
 }
 
+
+select:hover{
+    border: 1px solid rgb(138, 198, 74);
+    outline: none;
+}
+
 .footer-content {
     display: flex;
     flex-wrap: wrap;

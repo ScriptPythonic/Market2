@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template,redirect,url_for
+from flask import Blueprint, render_template,redirect,url_for,request,jsonify
 from flask_login import login_required
 from .decorator import admin_required
 from .models import Product
@@ -51,3 +51,20 @@ def decline_product(product_id):
         db.session.commit()
     return redirect(url_for('admin_panel.admin'))
 
+@admin_panel.route('/delete_approved_product/<int:product_id>', methods=['DELETE'])
+@admin_required
+@login_required
+def delete_approved_product(product_id):
+    if request.method == 'DELETE':
+        try:
+            product = Product.query.get(product_id)
+            if product:
+                db.session.delete(product)
+                db.session.commit()
+                return jsonify({"message": "Product deleted successfully"})
+            else:
+                return jsonify({"error": "Product not found"}), 404
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+    else:
+        return jsonify({"error": "Method not allowed"}), 405

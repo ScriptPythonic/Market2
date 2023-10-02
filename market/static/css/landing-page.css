@@ -1,570 +1,100 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-nav{
-    width: 100%;
-    height: 70px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    z-index: 900;
-   
-
-}
-
-.scrolled{
-    background-color:rgb(138, 198, 74) ;
-}
-
-.company-name h2{
-  font-size: 35px;
-  font-family: 'Courier New', Courier, monospace;
-
-  margin-left: 30px;
-color: rgb(138, 198, 74);
- 
-}
-
-
-.product-search{
-    width: 300px;
-    height: 40px;
-    border-radius: 5px;
-    border: 0.8px solid white;
-    background-color: transparent;
-    color: white;
-}
-
-.product-search::placeholder{
-    font-size: medium;
-    text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.product-search:focus{
-    border: none;
-}
-
-.nav-links a{
-    text-decoration: none;
-    margin-right: 20px;
-    color: white;
-}
-
-.nav-links button{
-    width: 80px;
-    height: 35px;
-    border-radius: 5px;
-    border: none;
-    margin-right: 20px;
-    background: rgb(138, 198, 74);
-    color: white;
-}
-
-.container-fluid{
-    width: 100%;
-    height: 90vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(rgba(2,0,36,0.7),  rgba(2,0,36,0.6)), url(../images/market-image.jpg);
-    position: relative;
-    overflow: hidden;
-}
-
-.container-fluid-words{
-    width: 800px;
-    height: fit-content;
-    color: white;
-    position: absolute;
-    margin-left: 40px;
-    top: 320px;
-}
-
-.container-fluid-words h2{
-color: rgb(138, 198, 74);
-font-size: 40px;
-}
-
-section{
-    width: 100%;
-   
-}
-
-.grocery-header{
-text-align: center;
-font-size: 40px;
-color: rgb(138, 198, 74); 
-}
-
-.categories{
-    width: 100%;
+main{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+    width: 100%;
+    height:400px ;
+    margin-top: 70px;
 
-.category-grid{
+}
+.header-container{
     width: 90%;
-    height: auto;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    justify-content: center;
-    gap: 30px;
+    height: 350px;
+   
+    background-image: url(../images/freedelivery.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid #ddd;
+    border-radius: 20px;
 }
 
-.product-categoory{
-    width: 200px;
-    height: 200px;
-    background: #fff;
+/* Sample styling for product boxes */
+.veggies {
     text-align: center;
-    font-size: 16px;
+}
+
+#product-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-box {
+    border: 1px solid #ddd;
+    position: relative; 
+    text-align: center;
+   
+}
+
+.product-image{
+     position: relative; 
+}
+
+
+.add-to-cart {
+    background-color: rgb(138, 198, 74);
+    color: #fff;
+    border: none;
+    padding: 10px 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    z-index: 200;
+    left: 0;
+    border-bottom-right-radius: 5px;
 }
 
-.grocery{
-    background-image: url(../images/grocery-image.jfif);
-    width: 200px;
-    height: 180px;
-    background-size:cover;
+.product-details {
+    margin-top: 10px;
 }
 
-
-.household{
-    background-image: url(../images/house-hold.jfif);
-    width: 200px;
-    height: 180px;
-    background-size:cover;
-}
-
-.health{
-    background-image: url(../images/health-beauty.jfif);
-    width: 200px;
-    height: 180px;
-    background-size:cover;
-} 
-
-.baby{
-    background-image: url(../images/infant-product.jfif);
-    width: 200px;
-    height: 180px;
-    background-size:cover;
-}
-
-.electronic{
-    background-image: url(../images/electronic-appliances.jfif);
-    width: 200px;
-    height: 180px;
-    background-size:cover;
-}
-
-.jewelry{
-    background-image: url(../images/jelwries.jfif);
-    width: 200px;
-    height: 180px;
-    background-size:cover;
-}
-
-.clothing{
-    background-image: url(../images/clothes.jfif);
-    width: 200px;
-    height: 180px;
-    background-size:cover;
-}
-
-.book{
-    background-image: url(../images/books-media.jfif);
-    width: 200px;
-    height: 180px;
-    background-size:cover;
-}
-
-.toy{
-    background-image: url(../images/toy-image.jpg);
-    width: 200px;
-    height: 180px;
-    background-size:cover;
-}
-
-.other{
-    background-image: url(../images/other-image.jfif);
-    width: 200px;
-    height: 180px;
-    background-size:cover;
-}
-
-
-.about-courier{
-display: flex;
-margin-top: 30px;
- }
-
-.courier-image{
-width: 48%;
-height: 60vh;
-flex: 1;
-background-image: url(../images/courier_image.png);
-background-size: contain;
-background-repeat: no-repeat;
-box-shadow: 0 0 1px 1px rgba(118, 117, 120, 0.7);
-border-radius: 30px;
-background-position: center;
-}
-
-   .courier-comment{
-flex: 1;
-width: 48%;
-
-   }
-
-   .courier-comment-h2{
-width: 80%;
-text-align: center;
-font-family: Verdana, Geneva, Tahoma, sans-serif;
-margin-top: 50px;
-color: rgb(138, 198, 74);
-font-size: 27px;
-   }
-
-footer {
-background-color: #ddd;
-color: #333;
-padding: 20px 0;
-text-align: center;
-margin-top: 30px;
-}
-
-.header {
-margin-bottom: 20px;
-text-align: left; 
-}
-
-h1 {
-font-size: 2em;
-margin-bottom: 10px;
-color: rgb(138, 198, 74);
-font-family: 'Courier New', Courier, monospace;
-}
-
-.language {
-margin-bottom: 20px;
-text-align: left; 
-}
-
-.language h3,.country h3 {
-font-size: 1.2em;
-margin-bottom: 5px;
-color: #333;
-padding-left: 7px;
-}
-
-select {
-width: 210px;
-padding: 5px;
-border: 1px solid #ccc;
-border-radius: 3px;
-background-color: #fff;
-color: #333;
-margin-left: 10px; 
-}
-
-.footer-content {
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-}
-
-.footer-section {
-flex: 1;
-max-width: 200px;
-padding: 10px;
-text-align: left;
-}
-
-.footer-section h3 {
-font-size: 1.5em;
-margin-bottom: 10px;
-color: rgb(138, 198, 74);
-}
-
-footer ul {
-list-style: none;
-padding: 0;
-}
-
-footer ul li {
-margin: 10px 0;
-}
-
-footer a {
-color: #666;
-text-decoration: none;
-font-size: 1em;
-transition: color 0.3s ease;
-}
-
-footer a:hover {
-color: rgb(138, 198, 74);
-text-decoration: underline;
-}
-
-@media (max-width: 900px ) {
-    .product-search{
-      width: 250px;
-    }
-
-    .container-fluid-words{
-        width: 100%;
-        margin-left: 0;
-    }
+.product-name{
+    font-size: 19px;
 
 }
 
-@media (max-width: 760px ){
-    #sign-up,#sign-in{
-        display: none;
-    }
-
-    .product-search{
-        width: 180px;
-        height: 70px;
-        border-radius: 3px;
-        display: none;
-    }
-    .product-search::placeholder{
-        font-size: 12px;
-    }
-
-    .company-name h2{
-        font-size: 40px;
-        margin-left: 20px;
-    }
-
-    .container-fluid-words h2{
-        font-size: 25px;
-    }
-
-    .nav-links button{
-        width: 65px;
-        height: 35px;
-        font-size: 14px;
-        border-radius: 10px;
-        border: none;
-        margin-right: 10px;
-        background: rgb(138, 198, 74);
-        color: white;
-    }
+.product-price {
+    font-weight: bold;
 }
 
-@media (max-width: 1300px ){
-    product-categoory{
-       width:150px;
-        height: 200px;
-        background: #fff;
-        text-align: center;
-        font-size: 16px;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
-    
-    .grocery{
-        background-image: url(../images/grocery-image.jfif);
-       width:150px;
-       height:120px;
-        background-size:cover;
-    }
-    
-    
-    .household{
-        background-image: url(../images/house-hold.jfif);
-       width:150px;
-       height:120px;
-        background-size:cover;
-    }
-    
-    .health{
-        background-image: url(../images/health-beauty.jfif);
-       width:150px;
-       height:120px;
-        background-size:cover;
-    } 
-    
-    .baby{
-        background-image: url(../images/infant-product.jfif);
-       width:150px;
-       height:120px;
-        background-size:cover;
-    }
-    
-    .electronic{
-        background-image: url(../images/electronic-appliances.jfif);
-       width:150px;
-       height:120px;
-        background-size:cover;
-    }
-    
-    .jewelry{
-        background-image: url(../images/jelwries.jfif);
-       width:150px;
-       height:120px;
-        background-size:cover;
-    }
-    
-    .clothing{
-        background-image: url(../images/clothes.jfif);
-       width:150px;
-       height:120px;
-        background-size:cover;
-    }
-    
-    .book{
-        background-image: url(../images/books-media.jfif);
-       width:150px;
-       height:120px;
-        background-size:cover;
-    }
-    
-    .toy{
-        background-image: url(../images/toy-image.jpg);
-       width:150px;
-       height:120px;
-        background-size:cover;
-    }
-    
-    .other{
-        background-image: url(../images/other-image.jfif);
-        width:150px;
-        height:120px;
-        background-size:cover;
-    }}
-    
-@media (max-width: 1100px ){
-    .category-grid{
-        width: 100%;
-        height: auto;
-        display: grid;
-        grid-template-columns: auto auto auto auto auto;
-        justify-content: center;
-        gap: 15px;
-    }
-    .product-categoory{
-        width: 150px;
-        height: 130px;
-    }
-}
-
-@media (max-width: 500px ){
-    .container-fluid{
-        width: 100%;
-        height: 600px;
-    }
-
-    .category-grid{
-        grid-template-columns: auto auto;
-        gap: 20px;
-        width: 100%;
-    }
-
-    .product-categoory{
-        margin-bottom: 25px;
-    }
-
-    .container-fluid-words{
-        top: 350px;
-    }
-
-    .company-name h2{
-        font-size: 35px;
-        margin-left: 20px;
-    }
-
-    .product-search{
-        height: 19px;
-    }
-    .about-courier{
-        display: block;
-    }
-    .courier-image{
-        width: 100%;
-        height: 300px ;
-       
-        box-shadow: none;
-    }
-
-    .courier-comment{
-        width: 100%;
-        height: fit-content;
-        text-align: center;
-      
-    }
-
-    #section{
-        text-align: center;
-    }
-
-    .grocery-header{
-        font-size: 25px;
-       
-    }
-
+.product-quantity {
+    margin-top: 5px;
+    margin-bottom: 7px;
 
 }
 
-@media (max-width: 830px ){
-    .category-grid{
-        overflow: auto;
-    }
+/* Sample styling for quantity buttons */
+.quantity {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
 }
 
-@media(max-width:690px){
-    .footer-content{
-        display: block;
-    }
-
-    select{
-        height: 30px;
-    }
+.decrease-quantity,
+.increase-quantity {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 3px 6px;
+    cursor: pointer;
+    margin: 0 5px;
 }
 
-/* Style the flash messages container */
-.flash-messages {
-    list-style: none;
-    padding: 10px;
-    margin-top: 0px;
+.decrease-quantity:hover,
+.increase-quantity:hover {
+    background-color: #0056b3;
 }
-
-/* Style the flash messages container */
-.flash-messages {
-    list-style: none;
-    padding: 10px;
-    margin-top: 60px;
-}
-
-/* Style each individual flash message */
-.flash-message {
-    padding: 10px;
-    margin: 10px 0;
-    border: 2px solid;
-    border-radius: 5px;
-}
-
-/* Style success flash messages */
-.flash-message.success {
-    background-color: #4CAF50;
-    color: white;
-    border-color: #45a049;
-}
-
-/* Style error flash messages */
-.flash-message.error {
-    background-color: #f44336;
-    color: white;
-    border-color: #d32f2f;
-}
-
-
-
-    

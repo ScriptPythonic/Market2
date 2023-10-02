@@ -1,0 +1,71 @@
+ <nav>
+        <div class="companyName">
+            <div class="companyIcons">
+                <i class="fa fa-bars"  id="toggleShowLg"  aria-hidden="true"></i>
+            </div>
+            <h2>MARKET</h2>
+        </div>
+        <div class="categorySearch">
+            <input type="search" name="search" id="search" placeholder="Search Product Category ........">
+        </div>
+        <div class="navLinks">
+            <a href="#">LOGIN</a>
+            <a href="#">SIGN-UP</a>
+            <button><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+            <button>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <span class="badge-content">5</span>
+            </button>
+        </div>
+    </nav>
+    <div class="showLg"  id="showLgLinks">
+        <span class="closeButton" id="closeButton">&times;</span>
+        
+        <a href="#">Fruits & Veggies</a>
+        <a href="#">Plantain & Tubers </a>
+        <a href="#">Canned Foods</a>
+        <a href="#">Dry Foods </a>
+        <a href="#">Grains & Pasta</a>
+        <a href="#">Refrigerated Foods</a>
+        <a href="#">Oils & Species</a>
+        <a href="#">Canned Foods</a>
+        <a href="#">Seafood & Meat</a>
+        <a href="#">Breakfast pantry</a>
+        <a href="#">Prepped Bundles</a>
+        <a href="#">Skin Care</a>
+        <a href="#">Bath & Body Care</a>
+        <a href="#"> Cooked Food</a>
+        <a href="#">Drinks</a>
+        <a href="#">Baby Shop</a>
+        <a href="#">Snacks</a>
+        <a href="#">Baked Food </a>
+        <a href="#">Household Items</a>
+        <a href="#">BLOG</a>
+    </div>
+    <div class="showCart">
+
+    </div>
+    <script>
+        const toggleShowLgButton = document.getElementById("toggleShowLg");
+        const showLgLinks = document.getElementById("showLgLinks");
+        const closeButton = document.getElementById("closeButton");
+
+        toggleShowLgButton.addEventListener("click", function () {
+            showLgLinks.style.display = "block";
+            
+        });
+
+        closeButton.addEventListener("click", function () {
+            showLgLinks.style.display = "none";
+        });
+    </script>
+    {% block main %}
+  
+    {% endblock main %}
+
+    {% block body %}
+    
+    {% endblock body %}
+
+    {% extends "Assest/footer.html" %}
+

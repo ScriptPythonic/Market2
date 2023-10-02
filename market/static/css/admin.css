@@ -50,6 +50,11 @@ nav{
     color: rgb(138, 198, 74);
 }
 
+.delete-link{
+    cursor: pointer;
+    
+}
+
 .admin-table a:hover {
     background-color: rgb(138, 198, 74);
     color: white;

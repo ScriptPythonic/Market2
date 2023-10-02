@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(138, 198, 74);
+    align-items: center;
+    position: fixed;
+    z-index: 900;
+   
+
+}
+
+.scrolled{
+    background-color:rgb(138, 198, 74) ;
+}
+
+.company-name h2{
+  font-size: 35px;
+  font-family: 'Courier New', Courier, monospace;
+
+  margin-left: 30px;
+color: #fff;
+ 
+}
+flash-messages {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Style the flash messages container */
+.flash-messages {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Style each individual flash message */
+.flash-message {
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+/* Style success flash messages */
+.flash-message.success {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #45a049;
+}
+
+/* Style error flash messages */
+.flash-message.error {
+    background-color: #f44336;
+    color: white;
+    border-color: #d32f2f;
+}
+
+.product-search{
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    border: 0.8px solid white;
+    background-color: transparent;
+    color: white;
+}
+
+.product-search::placeholder{
+    font-size: medium;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.product-search:focus{
+    border: none;
+}
+
+.nav-links a{
+    text-decoration: none;
+    margin-right: 20px;
+    color: white;
+}
+
+.nav-links button{
+    width: 80px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 20px;
+    background: rgb(138, 198, 74);
+    color: white;
+}
+
+.container-fluid{
+    display: flex;
+    padding-top: 90px;
+}
+
+.account-header{
+    width: 48%;
+    height: 300px;
+    background-color:#e8dddd;
+    flex: 1;
+   margin-right: 10px;
+   border-radius: 10px;
+}
+
+.account-header h2, .account-details h2{
+    font-size: 35px;
+    font-family: 'Courier New', Courier, monospace;
+
+    margin-left: 10px;
+    color: rgb(138, 198, 74);
+ 
+}
+
+.balance{
+    margin-top: 25px;
+    text-align: center;
+    margin-right: 50%;
+
+}
+
+.account-details{
+    width: 48%;
+    height: 300px;
+    flex: 1;
+    overflow-y: scroll;
+}
+
+form{
+    width: 48%;
+}
+section{
+    display: flex;
+    height: fit-content;
+}
+
+.upload-media{
+    width: 100%;
+    flex: 1;
+}
+
+.account-details input,#nigerian_banks{
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.product-categories, #product-price,.product-description, .product-img{
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.recent-posted-project{
+    flex: 1;
+}
+
+.posted-project{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+

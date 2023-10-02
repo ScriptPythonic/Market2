@@ -1,6 +1,7 @@
 from flask import Flask,Blueprint,render_template
 from flask_login import login_required,current_user
 from .decorator import login_required
+from .models import Product
 
 
 
@@ -17,9 +18,9 @@ views = Blueprint('views', __name__)
 
 @views.route('/',methods=['GET'])
 def landing():
-   
-    
-        return  render_template('Assest/landing_page.html',user=current_user)
+        approved_product = Product.query.filter_by(status='Approved').all()
+
+        return  render_template('Assest/landing_page.html',products = approved_product)
     
 @views.route('/home',methods=['GET'])
 @login_required('user')

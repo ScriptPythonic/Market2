@@ -4,6 +4,8 @@ from flask_login import login_required,logout_user,login_user,current_user
 from .models import User,Seller,Rider
 from . import db 
 import bcrypt 
+from flask_dance.contrib.google import google
+
 
 
 auth = Blueprint('auth', __name__)

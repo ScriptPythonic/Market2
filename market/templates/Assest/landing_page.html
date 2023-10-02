@@ -3,167 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY MARKET</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/landing-page.css')}}">
-    <script src="{{ url_for('static',filename='js/landing.js')}}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <nav>
-        <div class="company-name">
-            <h2 id="company-name">MARKET</h2>
+    {% extends "Assest/nav.html" %}
+    
+    {% block main %}
+    <main>
+        <div class="header-container">
+          
         </div>
-        <div class="product-search">
-            <input type="search" class="product-search"  placeholder="Search For Product" name="search" id="search">
+    </main>
+    {% endblock main %}
+
+    {% block body %}
+    <div class="veggies">
+        <h2 class="section-title">Fresh Meat and Veggies</h2>
+        <div id="product-carousel">
+            {% for product in products %}
+            <div class="product-box">
+                <div class="product-image">
+                    <img src="{{ product.image_url }}" alt="{{ product.name }}" width="200" height="150">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-details">
+                    <h2 class="product-name">{{ product.name }}</h2>
+                    <p class="product-price">₦ {{ product.price }}0</p>
+                    <div class="product-quantity">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-     
-        <div class="nav-links">
-            {% if user.is_authenticated %}
-            <a href="#">Cart</a>
-            <a href="#">Order</a>
-            {% if user.role == 'admin' %}
-            <a href="/admin">Admin</a>
-            {% endif %}
-            <a href="/auth/logout">logout</a>
-             {% else %} 
-            <a href="/auth/sign-up" id="sign-up">Create-Acount</a>
-            <a href="/auth/login" id="sign-in">Sign-in</a>
-            {% endif %}
-            <button type="button">MENU</button>
-        </div>
-    </nav>
-   <main id="main">
-    <div class="container-fluid">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <ul class="flash-messages">
-                {% for category, message in messages %}
-                    <li class="flash-message {{ category }}">{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-        <div class="container-fluid-words">
-            <p><h2>Smart Strategies to Reduce Transportation Costs While Grocery Shopping</h2></p>
-            <p>
-                Get Ready to Save Big on Groceries and Transportation! Discover Awesome 
-                Tips to Trim Your Grocery Bills and Cut Down on Transportation Costs, All While Enjoying Exclusive Discounts and Insights on Our Website
-                 –<span> Your Ultimate Shopping Companion!</span>
-            </p>
-        </div>
+        <a class="carousel-control-prev" href="#product-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#product-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-   </main>
-   <section id="section">
-    <h2 class="grocery-header">Discover Our Wide Range of Categories</h2>
-    <div class="categories">
-        <div class="category-grid">
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get all product boxes
+            var productBoxes = document.querySelectorAll(".product-box");
+    
+            productBoxes.forEach(function (box) {
+                // Get quantity and price elements for each product
+                var quantityElement = box.querySelector(".quantity");
+                var priceElement = box.querySelector(".product-price");
+    
+                // Initial quantity and price values
+                var initialQuantity = parseInt(quantityElement.textContent, 10);
+                var pricePerItem = parseFloat(priceElement.textContent.replace("₦", "").trim());
+    
+                // Increase Quantity
+                var increaseButton = box.querySelector(".increase-quantity");
+                increaseButton.addEventListener("click", function () {
+                    if (initialQuantity < 10) {
+                        initialQuantity++;
+                        quantityElement.textContent = initialQuantity;
+                        updateTotalPrice();
+                    }
+                });
+    
+                // Decrease Quantity
+                var decreaseButton = box.querySelector(".decrease-quantity");
+                decreaseButton.addEventListener("click", function () {
+                    if (initialQuantity > 1) {
+                        initialQuantity--;
+                        quantityElement.textContent = initialQuantity;
+                        updateTotalPrice();
+                    }
+                });
+    
+                // Function to update total price
+                function updateTotalPrice() {
+                    var totalPrice = initialQuantity * pricePerItem;
+                    // Update the price displayed next to the product
+                    priceElement.textContent = "₦ " + totalPrice.toFixed(2);
+                }
+            });
+        });
+    </script>
 
-            <div class="product-categoory">
-                <a href="">
-                    <div class="product-img grocery">
-
-                    </div>
-                    <p>Groceries</p>
-                </a>
-            </div>
-
-            <div class="product-categoory">
-                <a href="">
-                    <div class="product-img household">
-
-                    </div>
-                    <p>Household Appliances</p>
-                </a>
-            </div>
-
-            <div class="product-categoory">
-                <a href="">
-                    <div class="product-img health">
-
-                    </div>
-                    <p>Health and Beauty</p>
-                </a>
-            </div>
-
-            <div class="product-categoory">
-                <a href="">
-                    <div class="product-img  baby">
-
-                    </div>
-                    <p>Infant Product</p>
-                </a>
-            </div>
-
-            <div class="product-categoory">
-                <a href="">
-                    <div class="product-img electronic">
-
-                    </div>
-                    <p>Electrical and Electronics</p>
-                </a>
-            </div>
-
-
-            <div class="product-categoory">
-                <a href="">
-                    <div class="product-img jewelry">
-
-                    </div>
-                    <p>Jewelries</p>
-                </a>
-            </div>
-
-            <div class="product-categoory">
-                <a href="">
-                    <div class="product-img clothing">
-
-                    </div>
-                    <p>Clothing</p>
-                </a>
-            </div>
-
-            <div class="product-categoory">
-                <a href="">
-                    <div class="product-img book">
-
-                    </div>
-                    <p>Books and Media</p>
-                </a>
-            </div>
-
-            <div class="product-categoory">
-                <a href="">
-                    <div class="product-img toy">
-
-                    </div>
-                    <p>Toys</p>
-                </a>
-            </div>
-
-            <div class="product-categoory">
-                <a href="">
-                    <div class="product-img other">
-
-                    </div>
-                    <p>Others</p>
-                </a>
-            </div>
-
-           
-        </div>
-    </div>
-    <div class="about-courier">
-        <div class="courier-comment">
-            <h1 class="courier-comment-h2">Get Instant Delivery with Our Dedicated Team of Riders – Your Cart, Our Swift Service</h1>
-        </div>
-
-        <div class="courier-image">
-
-        </div>
-       
-    </div>
-  
-   </section>
- {% extends "Assest/footer.html" %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initialize the carousel
+            var carousel = new bootstrap.Carousel(document.querySelector('.carousel'), {
+                interval: 2000, // Set the interval for automatic sliding (2 seconds in this example)
+                wrap: true, // Enable looping
+            });
+            
+            // Get all product boxes
+            var productBoxes = document.querySelectorAll(".product-box");
+    
+            productBoxes.forEach(function (box) {
+                // Get quantity, price, and add-to-cart button elements for each product
+                var quantityElement = box.querySelector(".quantity");
+                var priceElement = box.querySelector(".product-price");
+                var addToCartButton = box.querySelector(".add-to-cart");
+    
+                // Initial quantity and price values
+                var initialQuantity = parseInt(quantityElement.textContent, 10);
+                var pricePerItem = parseFloat(priceElement.textContent.replace("₦", "").trim());
+    
+                // Increase Quantity
+                var increaseButton = box.querySelector(".increase-quantity");
+                increaseButton.addEventListener("click", function () {
+                    if (initialQuantity < 10) {
+                        initialQuantity++;
+                        quantityElement.textContent = initialQuantity;
+                        updateTotalPrice();
+                    }
+                });
+    
+                // Decrease Quantity
+                var decreaseButton = box.querySelector(".decrease-quantity");
+                decreaseButton.addEventListener("click", function () {
+                    if (initialQuantity > 1) {
+                        initialQuantity--;
+                        quantityElement.textContent = initialQuantity;
+                        updateTotalPrice();
+                    }
+                });
+    
+                // Function to update total price
+                function updateTotalPrice() {
+                    var totalPrice = initialQuantity * pricePerItem;
+                    // Update the price displayed next to the product
+                    priceElement.textContent = "₦ " + totalPrice.toFixed(2);
+                }
+    
+                // Add-to-Cart button action (You can add your cart logic here)
+                addToCartButton.addEventListener("click", function () {
+                    // You can implement your cart functionality here
+                    // For example, add the selected product to the cart
+                    // and update the cart UI.
+                });
+            });
+        });
+    </script>
+    
+    
+    {% endblock body %}
 </body>
 </html>
-

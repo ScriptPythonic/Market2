@@ -81,26 +81,18 @@ def upload_product():
         return redirect(url_for('sellers.seller_home'))
 
 @sellers.route('/delete_products/<int:product_id>', methods=['DELETE'])
-@login_required('sellers')
+@login_required('seller')
 def delete_product(product_id):
-    try:
-        product = Product.query.get(product_id)
-        seller_id = current_user.id
-        if seller_id == current_user.id:
-          
-            db.session.delete(product)
-            db.session.commit()
-
-           
-            flash('Product deleted successfully', category='success')
-            return jsonify({'message': 'Product deleted successfully'}), 200
-        else:
-          
-            flash('Product not found or unauthorized', 'error')
-            return jsonify({'error': 'Product not found or unauthorized'}), 404
-    except Exception as e:
-       
-        flash(str(e), 'error')
-        return jsonify({'error': str(e)}), 500
-
-
+    if request.method == 'DELETE':
+        try:
+            product = Product.query.get(product_id)
+            if product and product.seller_id == current_user.id:
+                db.session.delete(product)
+                db.session.commit()
+                return jsonify({"message": "Product deleted successfully"})
+            else:
+                return jsonify({"error": "Product not found or unauthorized"}), 403
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+    else:
+        return jsonify({"error": "Method not allowed"}), 405
